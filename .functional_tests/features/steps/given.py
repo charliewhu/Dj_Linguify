@@ -1,7 +1,7 @@
 from behave import given
 
 
-@given('there are "{count}" Texts')
-def step_impl(context, count):
+@given("there are no Texts")
+def step_impl(context):
     res = context.test.client.get("/texts/")
-    context.test.assertEqual(len(res.content), count)
+    context.test.assertEqual(res.content, [])

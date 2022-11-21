@@ -5,7 +5,7 @@ Feature: Creating a Text
 
     Scenario: Created Text should show in the list
 
-        Given there are "0" Texts
+        Given there are no Texts
         When a Text is created
         And the Text has name "test Text"
         Then there are "1" Texts
