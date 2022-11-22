@@ -5,4 +5,4 @@ from .serializers import TextSerializer
 # Create your views here.
 class TextViewSet(viewsets.ModelViewSet):
     serializer_class = TextSerializer
-    queryset = Text.objects.all()
+    queryset = []
