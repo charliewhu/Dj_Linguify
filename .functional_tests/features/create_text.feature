@@ -9,4 +9,4 @@ Feature: Creating a Text
         When a Text is posted with name "test name" and body "test Text content"
         Then there are "1" Texts
         And the Text has body "test Text content"
-        And the Text will have name "test Text"
+        And the Text will have name "test name"
