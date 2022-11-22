@@ -9,4 +9,5 @@ class TextSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "name",
+            "body",
         ]
