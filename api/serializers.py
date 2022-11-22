@@ -6,4 +6,7 @@ from content.models import Text
 class TextSerializer(serializers.ModelSerializer):
     class Meta:
         model = Text
-        fields = []
+        fields = [
+            "id",
+            "name",
+        ]
