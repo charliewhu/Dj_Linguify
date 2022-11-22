@@ -5,3 +5,5 @@ urlpatterns = []
 
 router = SimpleRouter()
 router.register("texts", views.TextViewSet, basename="texts")
+
+urlpatterns += router.urls
