@@ -1,11 +1,9 @@
 from behave import when
+import json
 
 
-@when("a Text is created")
-def step_impl(context):
-    raise NotImplementedError("STEP: When a Text is created")
-
-
-@when('the Text has name "{name}"')
-def step_impl(context, name):
-    raise NotImplementedError('STEP: When the Text has name "test Text"')
+@when('a Text is posted with name "{name}" and body "{body}"')
+def step_impl(context, name, body):
+    url = "/api/texts/"
+    res = context.test.client.post(url, {"name": name, "body": body})
+    context.test.assertEqual(res.status_code, 201)
