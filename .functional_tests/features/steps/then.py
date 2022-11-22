@@ -12,9 +12,11 @@ def step_impl(context, count):
 def step_impl(context, name):
     res = context.test.client.get("/api/texts/")
     obj = json.loads(res.content)
-    context.test.assertEqual(obj.name, name)
+    context.test.assertEqual(obj[0].name, name)
 
 
 @then('the Text has body "{body}"')
 def step_impl(context, body):
-    raise NotImplementedError('STEP: Then the Text has body "test Text content"')
+    res = context.test.client.get("/api/texts/")
+    obj = json.loads(res.content)
+    context.test.assertEqual(obj[0].body, body)
