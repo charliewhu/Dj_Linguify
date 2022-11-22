@@ -1,8 +1,8 @@
 from behave import when
 
 
-@when("a Text is created")
-def step_impl(context):
+@when('a Text is created with body "{body}"')
+def step_impl(context, body):
     raise NotImplementedError("STEP: When a Text is created")
 
 
