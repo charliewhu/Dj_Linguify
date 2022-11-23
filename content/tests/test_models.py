@@ -17,7 +17,7 @@ class TextTest(TestCase):
         """
         self.assertEqual(Word.objects.count(), len(self.text_body.split()))
         self.assertEqual(Word.objects.first().name, "test")
-        self.assertEqual(Word.objects.first().status, "new")
+        self.assertEqual(Word.objects.first().status, "New")
         self.assertEqual(Word.objects.last().name, "body")
 
     def test_duplicate_words_not_created(self):

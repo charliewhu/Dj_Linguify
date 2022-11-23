@@ -17,4 +17,4 @@ class Text(models.Model):
 
 class Word(models.Model):
     name = models.CharField(max_length=50)
-    status = models.CharField(max_length=10)
+    status = models.CharField(max_length=10, default="New")
