@@ -13,7 +13,7 @@ class Text(models.Model):
 
     def create_words_from_body(self):
         for word in self.get_body_words():
-            Word.objects.create(
+            Word.objects.get_or_create(
                 name=word,
             )
 
@@ -23,5 +23,5 @@ class Text(models.Model):
 
 
 class Word(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     status = models.CharField(max_length=10, default="New")

@@ -43,4 +43,5 @@ class TextTest(TestCase):
         do not change status of existing object
         """
         # add new text with word crossover
-        pass
+        TextFactory(body="test")
+        self.assertEqual(Word.objects.count(), 3)
