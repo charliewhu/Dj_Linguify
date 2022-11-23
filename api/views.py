@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import TextSerializer
-from content.models import Text
+from .serializers import TextSerializer, WordSerializer
+
+from content.models import Text, Word
 
 
 class TextViewSet(viewsets.ModelViewSet):
@@ -10,5 +11,5 @@ class TextViewSet(viewsets.ModelViewSet):
 
 
 class WordViewSet(viewsets.ModelViewSet):
-    serializer_class = TextSerializer
-    queryset = Text.objects.all()
+    serializer_class = WordSerializer
+    queryset = Word.objects.all()
