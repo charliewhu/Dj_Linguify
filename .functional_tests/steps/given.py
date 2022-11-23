@@ -10,6 +10,4 @@ def step_impl(context):
 
 @given('there is a Text with name "{name}" and body "{body}"')
 def step_impl(context, name, body):
-    raise NotImplementedError(
-        'STEP: Given there is a Text with name "test name" and body "test body"'
-    )
+    TextFactory(name=name, body=body)
