@@ -20,6 +20,17 @@ class TextTest(TestCase):
         self.assertEqual(Word.objects.first().status, "New")
         self.assertEqual(Word.objects.last().name, "body")
 
+    def test_get_body_words(self):
+        words = self.text.get_body_words()
+        self.assertEqual(
+            words,
+            [
+                "test",
+                "text",
+                "body",
+            ],
+        )
+
     def test_duplicate_words_not_created(self):
         """
         if a Word already exists,

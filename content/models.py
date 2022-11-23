@@ -1,5 +1,6 @@
 from django.db import models
 
+import re, string
 
 # Create your models here.
 class Text(models.Model):
@@ -8,11 +9,14 @@ class Text(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        words = self.body.split()
-        for word in words:
+        for word in self.get_body_words():
             Word.objects.create(
                 name=word,
             )
+
+    def get_body_words(self):
+        str_without_punc = re.sub("[%s]" % re.escape(string.punctuation), "", self.body)
+        return str_without_punc.split()
 
 
 class Word(models.Model):
