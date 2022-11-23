@@ -9,6 +9,6 @@ def step_impl(context, name, body):
     context.test.assertEqual(res.status_code, 201)
 
 
-@when("Word is tagged")
+@when("the first Word is tagged")
 def step_impl(context):
     raise NotImplementedError("STEP: When Word is tagged")
