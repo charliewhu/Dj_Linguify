@@ -7,3 +7,8 @@ def step_impl(context, name, body):
     url = "/api/texts/"
     res = context.test.client.post(url, {"name": name, "body": body})
     context.test.assertEqual(res.status_code, 201)
+
+
+@when("Word is tagged")
+def step_impl(context):
+    raise NotImplementedError("STEP: When Word is tagged")
