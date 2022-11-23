@@ -7,3 +7,4 @@ class TextFactory(DjangoModelFactory):
         model = "content.Text"
 
     name = "test Text"
+    body = "test Body"
