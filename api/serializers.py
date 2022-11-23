@@ -18,5 +18,6 @@ class WordSerializer(serializers.ModelSerializer):
         model = Word
         fields = [
             "id",
+            "name",
             "status",
         ]
