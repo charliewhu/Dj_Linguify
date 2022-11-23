@@ -2,7 +2,7 @@ from django.test import TestCase
 
 from .factory import TextFactory
 
-from ..models import Word
+from ..models import Text, Word
 
 
 class TextTest(TestCase):
@@ -30,6 +30,11 @@ class TextTest(TestCase):
                 "body",
             ],
         )
+
+    def test_create_words_from_body(self):
+        text = Text(name="test", body="bodytest")
+        text.create_words_from_body()
+        self.assertTrue(Word.objects.get(name="bodytest"))
 
     def test_duplicate_words_not_created(self):
         """

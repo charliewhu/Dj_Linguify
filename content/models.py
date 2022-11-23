@@ -9,6 +9,9 @@ class Text(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+        self.create_words_from_body()
+
+    def create_words_from_body(self):
         for word in self.get_body_words():
             Word.objects.create(
                 name=word,
