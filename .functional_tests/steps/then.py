@@ -21,3 +21,12 @@ def step_impl(context, name):
     res = context.test.client.get("/api/texts/")
     obj = json.loads(res.content)
     context.test.assertEqual(obj[0].get("name"), name)
+
+
+@then('the Word will have status = "{status}"')
+def step_impl(context, status):
+    url = "/api/words/1/"
+    res = context.test.client.get(url)
+    obj = json.loads(res.content)
+
+    context.test.assertEqual(obj.get("status"), status)
