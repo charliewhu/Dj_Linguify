@@ -25,4 +25,8 @@ def step_impl(context, name):
 
 @then('the Word will have status = "{status}"')
 def step_impl(context, status):
-    raise NotImplementedError('STEP: Then the Word will have status = "Tagged"')
+    url = "/api/words/1/"
+    res = context.test.client.get(url)
+    obj = json.loads(res.content)
+
+    context.test.assertEqual(obj.get("status"), status)
