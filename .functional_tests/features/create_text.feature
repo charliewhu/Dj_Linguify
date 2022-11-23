@@ -10,3 +10,11 @@ Feature: Creating a Text
         Then there are "1" Texts
         And the Text has body "test Text content"
         And the Text will have name "test name"
+
+    Scenario: Created Text should create Words
+
+        Given there are no Texts
+        When a Text is posted with name "test1" and body "test"
+        And a Text is posted with name "test2" and body "test"
+        Then there are "2" Texts
+        And there are "1" Words
