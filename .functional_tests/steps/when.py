@@ -10,9 +10,10 @@ def step_impl(context, name, body):
     context.test.assertEqual(res.status_code, 201)
 
 
-@when("the first Word is tagged")
-def step_impl(context):
+@when('the first Word "{word}" is tagged')
+def step_impl(context, word):
     url = "/api/words/1/"
-    res = context.test.client.put(url, {"status": "Tagged"})
+    print({"name": str(word), "status": "Tagged"})
+    res = context.test.client.put(url, {"name": str(word), "status": "Tagged"})
 
     context.test.assertEqual(res.status_code, 200)

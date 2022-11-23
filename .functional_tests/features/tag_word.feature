@@ -6,5 +6,5 @@ Feature: Tagging a Word
     Scenario: tagged Word should have status=Tagged
 
         Given there is a Text with name "test name" and body "test body"
-        When the first Word is tagged
+        When the first Word "test" is tagged
         Then the Word will have status = "Tagged"
