@@ -5,7 +5,17 @@ import json
 @then('there are "{count}" Texts')
 def step_impl(context, count):
     res = context.test.client.get("/api/texts/")
-    context.test.assertEqual(len(json.loads(res.content)), int(count))
+    obj = json.loads(res.content)
+
+    context.test.assertEqual(len(obj), int(count))
+
+
+@then('there are "{count}" Words')
+def step_impl(context, count):
+    res = context.test.client.get("/api/words/")
+    obj = json.loads(res.content)
+
+    context.test.assertEqual(len(obj), int(count))
 
 
 @then('the Text has body "{body}"')
