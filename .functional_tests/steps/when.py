@@ -20,4 +20,6 @@ def step_impl(context, word):
 
 @when("the Text detail is requested")
 def step_impl(context):
-    raise NotImplementedError("STEP: When the Text detail is requested")
+    url = "/api/texts/1/"
+    res = context.test.client.get(url)
+    context.res = res.data
