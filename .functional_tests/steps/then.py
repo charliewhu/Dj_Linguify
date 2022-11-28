@@ -36,9 +36,9 @@ def step_impl(context, status):
     context.test.assertEqual(res.data.get("status"), status)
 
 
-@then('the Texts related Words have "{attr}" attribute')
-def step_impl(context, attr):
-    raise NotImplementedError('STEP: Then the Texts related Words have "id" attribute')
+@then('the Texts related Words have "{key}" key')
+def step_impl(context, key):
+    word_dict = 
 
 
 @then("the Words are in the correct order")

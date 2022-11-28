@@ -23,7 +23,7 @@ Feature: Creating a Text
 
         Given there is a Text with name "test name" and body "test body"
         When the Text detail is requested
-        Then the Texts related Words have "id" attribute
-        And the Texts related Words have "order" attribute
-        And the Texts related Words have "status" attribute
+        Then the Texts related Words have "id" key
+        And the Texts related Words have "order" key
+        And the Texts related Words have "status" key
         And the Words are in the correct order
