@@ -39,3 +39,8 @@ def step_impl(context, status):
 @then('the Texts related Words have "{attr}" attribute')
 def step_impl(context, attr):
     raise NotImplementedError('STEP: Then the Texts related Words have "id" attribute')
+
+
+@then("the Words are in the correct order")
+def step_impl(context):
+    raise NotImplementedError("STEP: Then the Words are in the correct order")
