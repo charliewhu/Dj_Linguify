@@ -26,4 +26,4 @@ Feature: Creating a Text
         Then the Texts related Words have "id" attribute
         And the Texts related Words have "order" attribute
         And the Texts related Words have "status" attribute
-         
+        And the Words are in the correct order
