@@ -38,7 +38,8 @@ def step_impl(context, status):
 
 @then('the Texts related Words have "{key}" key')
 def step_impl(context, key):
-    word_dict = 
+    word_dict = context.res.get("words")[0]
+    context.test.assertIn(key, word_dict)
 
 
 @then("the Words are in the correct order")
