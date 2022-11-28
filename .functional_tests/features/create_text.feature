@@ -23,7 +23,7 @@ Feature: Creating a Text
 
         Given there is a Text with name "test name" and body "test body"
         When the Text detail is requested
-        Then the Texts related Words are listed in the response
+        Then the Words "test" and "body" are listed in the response
         And the Texts related Words have "id" key
         And the Texts related Words have "order" key
         And the Texts related Words have "status" key
