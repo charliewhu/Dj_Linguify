@@ -18,3 +18,12 @@ Feature: Creating a Text
         And a Text is posted with name "test2" and body "test"
         Then there are "2" Texts
         And there are "1" Words
+
+    Scenario: Created Text should list Words in order
+
+        Given there is a Text with name "test name" and body "test body"
+        When the Text detail is requested
+        Then the Texts related Words have "id" attribute
+        And the Texts related Words have "order" attribute
+        And the Texts related Words have "status" attribute
+         
