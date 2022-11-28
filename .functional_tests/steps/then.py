@@ -1,5 +1,4 @@
 from behave import then
-import json
 
 
 @then('there are "{count}" Texts')
