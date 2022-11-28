@@ -40,3 +40,8 @@ def step_impl(context, status):
     obj = json.loads(res.content)
 
     context.test.assertEqual(obj.get("status"), status)
+
+
+@then('the Texts related Words have "{attr}" attribute')
+def step_impl(context, attr):
+    raise NotImplementedError('STEP: Then the Texts related Words have "id" attribute')

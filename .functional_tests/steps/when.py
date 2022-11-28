@@ -16,3 +16,8 @@ def step_impl(context, word):
     res = context.test.client.put(url, {"name": word, "status": "Tagged"})
 
     context.test.assertEqual(res.status_code, 200)
+
+
+@when("the Text detail is requested")
+def step_impl(context):
+    raise NotImplementedError("STEP: When the Text detail is requested")
