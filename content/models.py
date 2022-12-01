@@ -25,3 +25,4 @@ class Text(models.Model):
 class Word(models.Model):
     name = models.CharField(max_length=50, unique=True)
     status = models.CharField(max_length=10, default="New")
+    text = models.ForeignKey(Text, on_delete=models.CASCADE, null=True)
