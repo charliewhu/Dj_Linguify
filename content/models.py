@@ -7,6 +7,9 @@ class Word(models.Model):
     name = models.CharField(max_length=50, unique=True)
     status = models.CharField(max_length=10, default="New")
 
+    def __str__(self):
+        return self.name
+
 
 class Text(models.Model):
     name = models.CharField(max_length=50, null=True)
