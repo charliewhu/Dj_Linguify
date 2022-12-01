@@ -44,3 +44,7 @@ class TextTest(TestCase):
     def test_manytomany_relation_created(self):
         self.assertEqual(self.text.words.count(), 3)
         self.assertEqual(TextWord.objects.count(), 3)
+
+    def test_order_of_words(self):
+        self.assertEqual(TextWord.objects.first().order, 1)
+        self.assertEqual(TextWord.objects.last().order, Word.objects.count())
