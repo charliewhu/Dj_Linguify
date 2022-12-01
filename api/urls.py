@@ -1,7 +1,11 @@
+from django.urls import path
+
 from rest_framework.routers import SimpleRouter
 from . import views
 
-urlpatterns = []
+urlpatterns = [
+    path("text_words/<int:pk>/", views.text_word, name="text_word"),
+]
 
 router = SimpleRouter()
 router.register("texts", views.TextViewSet, basename="texts")
