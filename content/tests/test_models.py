@@ -2,7 +2,7 @@ from django.test import TestCase
 
 from .factory import TextFactory
 
-from ..models import Text, Word
+from ..models import Text, TextWord, Word
 
 
 class TextTest(TestCase):
@@ -14,12 +14,10 @@ class TextTest(TestCase):
         """
         a word should be creared for each word in the Text body,
         with status = "new"
-        with foreignkey to Text
         """
         self.assertEqual(Word.objects.count(), len(self.text_body.split()))
         self.assertEqual(Word.objects.first().name, "test")
         self.assertEqual(Word.objects.first().status, "New")
-        self.assertEqual(Word.objects.first().text, self.text)
         self.assertEqual(Word.objects.last().name, "body")
 
     def test_get_body_words(self):
@@ -33,11 +31,6 @@ class TextTest(TestCase):
             ],
         )
 
-    def test_create_words_from_body(self):
-        text = Text(name="test", body="bodytest")
-        text.create_words_from_body()
-        self.assertTrue(Word.objects.get(name="bodytest"))
-
     def test_duplicate_words_not_created(self):
         """
         if a Word already exists,
@@ -48,5 +41,6 @@ class TextTest(TestCase):
         TextFactory(body="test")
         self.assertEqual(Word.objects.count(), 3)
 
-    def test_words_belong_to_text(self):
-        self.assertEqual(Word.objects.first().text, self.text)
+    def test_manytomany_relation_created(self):
+        self.assertEqual(self.text.words.count(), 3)
+        self.assertEqual(TextWord.objects.count(), 3)
