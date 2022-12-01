@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from content.models import Text, Word
+from content.models import Text, TextWord, Word
 
 
 class TextSerializer(serializers.ModelSerializer):
@@ -22,3 +22,9 @@ class WordSerializer(serializers.ModelSerializer):
             "name",
             "status",
         ]
+
+
+class TextWordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TextWord
+        fields = ["id", "text", "word"]

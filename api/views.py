@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from rest_framework import viewsets
-from .serializers import TextSerializer, WordSerializer
+from rest_framework import viewsets, status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
-from content.models import Text, Word
+from .serializers import TextSerializer, TextWordSerializer, WordSerializer
+from content.models import Text, TextWord, Word
 
 
 class TextViewSet(viewsets.ModelViewSet):
@@ -13,3 +15,11 @@ class TextViewSet(viewsets.ModelViewSet):
 class WordViewSet(viewsets.ModelViewSet):
     serializer_class = WordSerializer
     queryset = Word.objects.all()
+
+
+@api_view(["GET"])
+def text_word(request, pk):
+    if request.method == "GET":
+        text_word = TextWord.objects.filter(text=pk)
+        serializer = TextWordSerializer(text_word, many=True)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
