@@ -45,3 +45,6 @@ class TextTest(TestCase):
         # add new text with word crossover
         TextFactory(body="test")
         self.assertEqual(Word.objects.count(), 3)
+
+    def test_words_belong_to_text(self):
+        self.assertEqual(Word.objects.first().text, 1)
