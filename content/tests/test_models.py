@@ -14,10 +14,12 @@ class TextTest(TestCase):
         """
         a word should be creared for each word in the Text body,
         with status = "new"
+        with foreignkey to Text
         """
         self.assertEqual(Word.objects.count(), len(self.text_body.split()))
         self.assertEqual(Word.objects.first().name, "test")
         self.assertEqual(Word.objects.first().status, "New")
+        self.assertEqual(Word.objects.first().text, self.text)
         self.assertEqual(Word.objects.last().name, "body")
 
     def test_get_body_words(self):
@@ -47,4 +49,4 @@ class TextTest(TestCase):
         self.assertEqual(Word.objects.count(), 3)
 
     def test_words_belong_to_text(self):
-        self.assertEqual(Word.objects.first().text, 1)
+        self.assertEqual(Word.objects.first().text, self.text)

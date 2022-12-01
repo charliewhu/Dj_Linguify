@@ -15,6 +15,7 @@ class Text(models.Model):
         for word in self.get_body_words():
             Word.objects.get_or_create(
                 name=word,
+                text=self,
             )
 
     def get_body_words(self):
