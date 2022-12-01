@@ -18,8 +18,8 @@ def step_impl(context, word):
     context.test.assertEqual(res.status_code, 200)
 
 
-@when("the Text detail is requested")
+@when("the TextWord detail is requested")
 def step_impl(context):
-    url = "/api/texts/1/"
+    url = "/api/text_word/1/"
     res = context.test.client.get(url)
     context.res = res.data
