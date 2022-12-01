@@ -19,11 +19,11 @@ class TextDetailTest(APITestCase):
                 "words": [
                     {
                         "id": 1,
-                        "name": self.text.word_set.first().name,
+                        "name": self.text.words.first().name,
                     },
                     {
                         "id": 2,
-                        "name": self.text.word_set.last().name,
+                        "name": self.text.words.last().name,
                     },
                 ],
             },
