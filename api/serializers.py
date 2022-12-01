@@ -25,6 +25,8 @@ class WordSerializer(serializers.ModelSerializer):
 
 
 class TextWordSerializer(serializers.ModelSerializer):
+    word = serializers.StringRelatedField()
+
     class Meta:
         model = TextWord
         fields = ["id", "text", "word"]
