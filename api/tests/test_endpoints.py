@@ -16,15 +16,7 @@ class TextDetailTest(APITestCase):
             {
                 "id": self.text.id,
                 "name": self.text.name,
-                "words": [
-                    {
-                        "id": 1,
-                        "name": self.text.words.first().name,
-                    },
-                    {
-                        "id": 2,
-                        "name": self.text.words.last().name,
-                    },
-                ],
+                "body": self.text.body,
+                "words": [1, 2],
             },
         )
