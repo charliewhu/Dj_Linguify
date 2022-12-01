@@ -10,7 +10,6 @@ class TextSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "body",
-            "words",
         ]
 
 

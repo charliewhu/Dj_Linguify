@@ -17,6 +17,5 @@ class TextDetailTest(APITestCase):
                 "id": self.text.id,
                 "name": self.text.name,
                 "body": self.text.body,
-                "words": [1, 2],
             },
         )
