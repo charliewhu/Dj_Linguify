@@ -17,9 +17,6 @@ class WordViewSet(viewsets.ModelViewSet):
     queryset = Word.objects.all()
 
 
-@api_view(["GET"])
-def text_word(request, pk):
-    if request.method == "GET":
-        text_words = TextWord.objects.filter(text=pk)
-        serializer = TextWordSerializer(text_words, many=True)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+class TextWordViewSet(viewsets.ModelViewSet):
+    serializer_class = TextWordSerializer
+    queryset = TextWord.objects.all()
