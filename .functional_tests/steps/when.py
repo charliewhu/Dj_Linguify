@@ -20,6 +20,6 @@ def step_impl(context, word):
 
 @when("the TextWord detail is requested")
 def step_impl(context):
-    url = "/api/text_word/1/"
+    url = "/api/text_words/1/"
     res = context.test.client.get(url)
-    context.res = res.data
+    context.res = res.json()
