@@ -25,6 +25,5 @@ Feature: Creating a Text
         When the TextWord detail is requested
         Then the Words "test" and "body" are listed in the response
         And the Texts related Words have "id" key
-        And the Texts related Words have "order" key
         And the Texts related Words have "status" key
         And the Words are in the correct order
