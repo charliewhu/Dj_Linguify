@@ -12,5 +12,5 @@ coverage html
 To omit certain files from html, run:
 
 ```bash
-coverage html --omit="*filename*"
+coverage html --omit="<filename>"
 ```
