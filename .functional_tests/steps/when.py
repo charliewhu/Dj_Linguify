@@ -16,3 +16,10 @@ def step_impl(context, word):
     res = context.test.client.put(url, {"name": word, "status": "Tagged"})
 
     context.test.assertEqual(res.status_code, 200)
+
+
+@when("the TextWord detail is requested")
+def step_impl(context):
+    url = "/api/text_words/1/"
+    res = context.test.client.get(url)
+    context.res = res.json()

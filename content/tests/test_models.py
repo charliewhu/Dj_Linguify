@@ -2,7 +2,7 @@ from django.test import TestCase
 
 from .factory import TextFactory
 
-from ..models import Text, Word
+from ..models import Text, TextWord, Word
 
 
 class TextTest(TestCase):
@@ -31,11 +31,6 @@ class TextTest(TestCase):
             ],
         )
 
-    def test_create_words_from_body(self):
-        text = Text(name="test", body="bodytest")
-        text.create_words_from_body()
-        self.assertTrue(Word.objects.get(name="bodytest"))
-
     def test_duplicate_words_not_created(self):
         """
         if a Word already exists,
@@ -45,3 +40,20 @@ class TextTest(TestCase):
         # add new text with word crossover
         TextFactory(body="test")
         self.assertEqual(Word.objects.count(), 3)
+
+    def test_manytomany_relation_created(self):
+        self.assertEqual(self.text.words.count(), 3)
+        self.assertEqual(TextWord.objects.count(), 3)
+
+
+class TextWordTest(TestCase):
+    def setUp(self):
+        self.text_body = "test"
+        self.text = TextFactory(body=self.text_body)
+
+    def test_get_word_status(self):
+        text_word = TextWord.objects.first()
+        text_word_status = text_word.get_word_status()
+        word_status = Word.objects.first().status
+
+        self.assertEqual(text_word_status, word_status)
