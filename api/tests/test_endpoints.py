@@ -1,4 +1,5 @@
 from rest_framework.test import APITestCase
+from content.models import Word
 
 from content.tests.factory import TextFactory
 
@@ -26,6 +27,7 @@ class TextWordDetailTest(APITestCase):
         self.url = "/api/text_words/1/"
         self.body = "test"
         self.text = TextFactory(body=self.body)
+        self.word = Word.objects.first()
 
     def test_GET(self):
         res = self.client.get(self.url)
@@ -36,7 +38,8 @@ class TextWordDetailTest(APITestCase):
                 {
                     "id": 1,
                     "text": self.text.id,
-                    "word": self.body,
+                    "word": self.word.name,
+                    "status": self.word.status,
                 },
             ],
         )
