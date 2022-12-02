@@ -44,3 +44,16 @@ class TextTest(TestCase):
     def test_manytomany_relation_created(self):
         self.assertEqual(self.text.words.count(), 3)
         self.assertEqual(TextWord.objects.count(), 3)
+
+
+class TextWordTest(TestCase):
+    def setUp(self):
+        self.text_body = "test"
+        self.text = TextFactory(body=self.text_body)
+
+    def test_get_word_status(self):
+        text_word = TextWord.objects.first()
+        text_word_status = text_word.get_word_status()
+        word_status = Word.objects.first().status
+
+        self.assertEqual(text_word_status, word_status)

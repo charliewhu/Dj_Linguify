@@ -39,3 +39,6 @@ class Text(models.Model):
 class TextWord(models.Model):
     word = models.ForeignKey(Word, on_delete=models.CASCADE)
     text = models.ForeignKey(Text, on_delete=models.CASCADE)
+
+    def get_word_status(self):
+        return self.word.status
