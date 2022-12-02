@@ -1,0 +1,8 @@
+[run]
+omit = 
+    *settings*,
+    *tests/*,
+    *migrations/*
+    *__init__.py,
+    manage.py,
+    
