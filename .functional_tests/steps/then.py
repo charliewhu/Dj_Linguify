@@ -38,9 +38,9 @@ def step_impl(context, status):
 
 @then('the Words "{word1}" and "{word2}" are listed in the response')
 def step_impl(context, word1, word2):
-    test_word = [d["word"] for d in context.res]
-    context.test.assertIn(word1, test_word)
-    context.test.assertIn(word2, test_word)
+    words = [i["word"] for i in context.res]
+    context.test.assertIn(word1, words)
+    context.test.assertIn(word2, words)
 
 
 @then('the Texts related Words have "{key}" key')
