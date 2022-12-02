@@ -5,7 +5,7 @@
 To generate a coverage html file:
 
 ```bash
-coverage run manage.py test
+coverage run manage.py test --settings=web_project.settings
 coverage html
 ```
 
