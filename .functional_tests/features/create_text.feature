@@ -26,4 +26,3 @@ Feature: Creating a Text
         Then the Words "test" and "body" are listed in the response
         And the Texts related Words have "id" key
         And the Texts related Words have "status" key
-        And the Words are in the correct order

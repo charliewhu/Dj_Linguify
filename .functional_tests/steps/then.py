@@ -47,8 +47,3 @@ def step_impl(context, word1, word2):
 def step_impl(context, key):
     word_dict = context.res[0]
     context.test.assertIn(key, word_dict)
-
-
-@then("the Words are in the correct order")
-def step_impl(context):
-    raise NotImplementedError("STEP: Then the Words are in the correct order")
