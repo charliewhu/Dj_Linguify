@@ -25,7 +25,13 @@ class WordSerializer(serializers.ModelSerializer):
 
 class TextWordSerializer(serializers.ModelSerializer):
     word = serializers.StringRelatedField()
+    status = serializers.StringRelatedField(source="get_word_status", read_only=True)
 
     class Meta:
         model = TextWord
-        fields = ["id", "text", "word"]
+        fields = [
+            "id",
+            "text",
+            "word",
+            "status",
+        ]
